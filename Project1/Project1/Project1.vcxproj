@@ -119,6 +119,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="chu chu mao lu.c" />
+    <ClCompile Include="jie gou zhizhenxing hanshu.c" />
+    <ClCompile Include="struct.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

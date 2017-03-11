@@ -18,5 +18,11 @@
     <ClCompile Include="chu chu mao lu.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="jie gou zhizhenxing hanshu.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="struct.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="源.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="chuchumaolu.c">
+    <ClCompile Include="jiegou zhizhenxing hanshu.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
