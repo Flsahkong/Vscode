@@ -18,5 +18,8 @@
     <ClCompile Include="jiegou zhizhenxing hanshu.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="shijienihao.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
