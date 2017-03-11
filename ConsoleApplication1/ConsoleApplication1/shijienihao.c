@@ -5,4 +5,5 @@ int main() {
 	int  a, b;
 	getchar();
 	a = 12; b = 23;
+	scanf_s("%d\n", &a);
 }
