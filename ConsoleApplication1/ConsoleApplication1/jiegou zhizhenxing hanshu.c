@@ -12,7 +12,7 @@ struct complext
 
 struct complext *findmax(struct complext *p, int m);
 
-int main()
+int jiegouzhizhenxing()
 {
 
 	struct complext num[n], *maxnum, *p = num;

@@ -148,6 +148,8 @@
   <ItemGroup>
     <ClCompile Include="jiegou zhizhenxing hanshu.c" />
     <ClCompile Include="shijienihao.c" />
+    <ClCompile Include="zhizhenshuzu.c" />
+    <ClCompile Include="源.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

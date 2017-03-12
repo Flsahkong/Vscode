@@ -1,6 +1,6 @@
 # include<stdio.h>
 
-int main() {
+int shijienihao() {
 	printf("biihf");
 	int  a, b;
 	getchar();
