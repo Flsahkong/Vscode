@@ -1,8 +1,18 @@
+# define _CRT_SECURE_NO_WARNINGS
 # include<stdio.h>
+# include<stdlib.h>
+# include<math.h>
+# include<windows.h>
 
-int main()
+
+int main(int argc,char *argv[])
 {
-	zhizhenshuzu();
-
+	//			zhizhenshuzu();
+	//			jiegouzhizhenxing();
+	//			minglinghangcanshu();
+	//			shijienihao();
+				run();
+	//				  ceshi();
+	//system("mspaint");
 	return 0;
 }

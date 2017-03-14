@@ -2,9 +2,13 @@
 
 int zhizhenshuzu()
 {
-
-	int i = 0;
-	printf("%d\n", i);
+	char *pi[] = {
+		"nihao",
+		"haha",
+		"lalalala",
+		"youxiyouxi"
+	};
+	printf("%s\n", *pi[0]);
 
 	getchar();
 
