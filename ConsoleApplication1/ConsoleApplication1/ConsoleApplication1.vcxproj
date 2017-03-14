@@ -87,7 +87,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -146,7 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ceshi.c" />
+    <ClCompile Include="run.c" />
     <ClCompile Include="jiegou zhizhenxing hanshu.c" />
+    <ClCompile Include="ming ling hang can shu.c" />
     <ClCompile Include="shijienihao.c" />
     <ClCompile Include="zhizhenshuzu.c" />
     <ClCompile Include="源.c" />
