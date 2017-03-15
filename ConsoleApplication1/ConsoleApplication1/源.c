@@ -11,8 +11,10 @@ int main(int argc,char *argv[])
 	//			jiegouzhizhenxing();
 	//			minglinghangcanshu();
 	//			shijienihao();
-				run();
+	//				run();
 	//				  ceshi();
+
+	diguixuexi();
 	//system("mspaint");
 	return 0;
 }

@@ -27,13 +27,16 @@
     <ClCompile Include="源.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ming ling hang can shu.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="ceshi.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="run.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="diguixuexi.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="minglinghangcanshu.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
