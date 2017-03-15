@@ -1,0 +1,32 @@
+﻿生成启动时间为 2017/3/13 19:01:10。
+     1>项目“E:\Hotwind\代码\vs\Vscode\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         D:\vs 2015\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt ceshi.c run.c "jiegou zhizhenxing hanshu.c" "ming ling hang can shu.c" shijienihao.c zhizhenshuzu.c "源.c"
+         源.c
+     1>e:\hotwind\代码\vs\vscode\consoleapplication1\consoleapplication1\源.c(1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+         e:\hotwind\代码\vs\vscode\consoleapplication1\consoleapplication1\源.c(1): note: 命令行参数: 参见前面的“_CRT_SECURE_NO_WARNINGS”定义
+     1>e:\hotwind\代码\vs\vscode\consoleapplication1\consoleapplication1\源.c(14): warning C4013: “run”未定义；假设外部返回 int
+         zhizhenshuzu.c
+     1>e:\hotwind\代码\vs\vscode\consoleapplication1\consoleapplication1\zhizhenshuzu.c(11): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int'
+         shijienihao.c
+     1>e:\hotwind\代码\vs\vscode\consoleapplication1\consoleapplication1\shijienihao.c(5): warning C4101: “a”: 未引用的局部变量
+     1>e:\hotwind\代码\vs\vscode\consoleapplication1\consoleapplication1\shijienihao.c(5): warning C4101: “b”: 未引用的局部变量
+         ming ling hang can shu.c
+         jiegou zhizhenxing hanshu.c
+         run.c
+         ceshi.c
+         正在生成代码...
+       Link:
+         D:\vs 2015\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Hotwind\代码\vs\Vscode\ConsoleApplication1\Debug\ConsoleApplication1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\Hotwind\代码\vs\Vscode\ConsoleApplication1\Debug\ConsoleApplication1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Hotwind\代码\vs\Vscode\ConsoleApplication1\Debug\ConsoleApplication1.lib" /MACHINE:X86 Debug\ceshi.obj
+         Debug\run.obj
+         "Debug\jiegou zhizhenxing hanshu.obj"
+         "Debug\ming ling hang can shu.obj"
+         Debug\shijienihao.obj
+         Debug\zhizhenshuzu.obj
+         "Debug\源.obj"
+         ConsoleApplication1.vcxproj -> E:\Hotwind\代码\vs\Vscode\ConsoleApplication1\Debug\ConsoleApplication1.exe
+     1>已完成生成项目“E:\Hotwind\代码\vs\Vscode\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj”(Rebuild 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:01.96

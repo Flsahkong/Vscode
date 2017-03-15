@@ -1,0 +1,12 @@
+﻿生成启动时间为 2017/3/11 20:19:34。
+     1>项目“E:\Hotwind\代码\vs\Vscode\Project1\Project1\Project1.vcxproj”在节点 2 上(ClCompile 个目标)。
+     1>ClCompile:
+         D:\vs 2015\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt "jie gou zhizhenxing hanshu.c"
+         jie gou zhizhenxing hanshu.c
+     1>e:\hotwind\代码\vs\vscode\project1\project1\jie gou zhizhenxing hanshu.c(7): error C2011: “_complex”:“struct”类型重定义
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\math.h(41): note: 参见“_complex”的声明
+     1>已完成生成项目“E:\Hotwind\代码\vs\Vscode\Project1\Project1\Project1.vcxproj”(ClCompile 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.14
