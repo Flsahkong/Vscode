@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="chu chu mao lu.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="jie gou zhizhenxing hanshu.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="struct.c">
+    <ClCompile Include="源.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

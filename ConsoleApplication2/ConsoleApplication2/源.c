@@ -3,15 +3,14 @@
 
 int main()
 {
-	in(1,3);
-	printf("%p",in);
+	int a;
+	scanf("%d", &a);
 
+	printf("%d\n", a);
+
+	getchar();
 	getchar();
 
 	return 0;
 }
 
-int in(int a, int b)
-{
-	return a > b ? a : b;
-}

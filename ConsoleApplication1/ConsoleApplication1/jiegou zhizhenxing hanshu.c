@@ -17,7 +17,7 @@ int jiegouzhizhenxing()
 
 	struct complext num[n], *maxnum, *p = num;
 	for (int i = 0; i < n; i++) {
-		scanf_s("%lf%lf\n",&(p + i)->x, &(p + i)->y);
+		scanf_s("%lf%lf",&(p + i)->x, &(p + i)->y);
 		printf("ÄãÊäÈëµÄÊÇ£º%lf+%lfi\n", (p + i)->x, (p + i)->y);
 	
 	}

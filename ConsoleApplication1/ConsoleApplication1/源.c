@@ -14,7 +14,9 @@ int main(int argc,char *argv[])
 	//				run();
 	//				  ceshi();
 
-	diguixuexi();
+	//				diguixuexi();
+						hanniba();
+
 	//system("mspaint");
 	return 0;
 }

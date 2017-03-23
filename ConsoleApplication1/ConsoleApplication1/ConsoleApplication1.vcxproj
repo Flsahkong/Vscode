@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClCompile Include="ceshi.c" />
     <ClCompile Include="diguixuexi.c" />
+    <ClCompile Include="haniba.c" />
     <ClCompile Include="minglinghangcanshu.c" />
     <ClCompile Include="run.c" />
     <ClCompile Include="jiegou zhizhenxing hanshu.c" />

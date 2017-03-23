@@ -39,5 +39,8 @@
     <ClCompile Include="minglinghangcanshu.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="haniba.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
