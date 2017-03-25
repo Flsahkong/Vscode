@@ -3,6 +3,11 @@
 
 int main()
 {
+
+	//kuaisuoaixu();
+
 	link();
+	system("pause");
+
 	return 0;
 }

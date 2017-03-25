@@ -1,19 +1,12 @@
-﻿生成启动时间为 2017/3/23 22:35:03。
+﻿生成启动时间为 2017/3/25 10:38:16。
      1>项目“E:\Hotwind\代码\vs\Vscode\LIANBIAO\lianbiao1,chuxue\lianbiao1,chuxue.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         D:\vs 2015\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt link.c linklist.c
+         D:\vs 2015\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt linklist.c
          linklist.c
-         link.c
-     1>e:\hotwind\代码\vs\vscode\lianbiao\lianbiao1,chuxue\link.c(9): warning C4013: “addback”未定义；假设外部返回 int
-     1>e:\hotwind\代码\vs\vscode\lianbiao\lianbiao1,chuxue\link.c(9): warning C4047: “=”:“node *”与“int”的间接级别不同
-     1>e:\hotwind\代码\vs\vscode\lianbiao\lianbiao1,chuxue\link.c(10): warning C4047: “=”:“node *”与“int”的间接级别不同
-     1>e:\hotwind\代码\vs\vscode\lianbiao\lianbiao1,chuxue\link.c(11): warning C4047: “=”:“node *”与“int”的间接级别不同
-     1>e:\hotwind\代码\vs\vscode\lianbiao\lianbiao1,chuxue\link.c(12): warning C4047: “=”:“node *”与“int”的间接级别不同
-     1>e:\hotwind\代码\vs\vscode\lianbiao\lianbiao1,chuxue\link.c(13): warning C4047: “=”:“node *”与“int”的间接级别不同
-         正在生成代码...
      1>e:\hotwind\代码\vs\vscode\lianbiao\lianbiao1,chuxue\linklist.c(42): warning C4715: “addback”: 不是所有的控件路径都返回值
        Link:
-         D:\vs 2015\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Hotwind\代码\vs\Vscode\LIANBIAO\Debug\lianbiao1,chuxue.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\Hotwind\代码\vs\Vscode\LIANBIAO\Debug\lianbiao1,chuxue.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Hotwind\代码\vs\Vscode\LIANBIAO\Debug\lianbiao1,chuxue.lib" /MACHINE:X86 Debug\link.obj
+         D:\vs 2015\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Hotwind\代码\vs\Vscode\LIANBIAO\Debug\lianbiao1,chuxue.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\Hotwind\代码\vs\Vscode\LIANBIAO\Debug\lianbiao1,chuxue.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Hotwind\代码\vs\Vscode\LIANBIAO\Debug\lianbiao1,chuxue.lib" /MACHINE:X86 Debug\kuaisupaixu.obj
+         Debug\link.obj
          Debug\linklist.obj
          "Debug\源.obj"
          lianbiao1,chuxue.vcxproj -> E:\Hotwind\代码\vs\Vscode\LIANBIAO\Debug\lianbiao1,chuxue.exe
@@ -21,4 +14,4 @@
 
 已成功生成。
 
-已用时间 00:00:00.53
+已用时间 00:00:00.51

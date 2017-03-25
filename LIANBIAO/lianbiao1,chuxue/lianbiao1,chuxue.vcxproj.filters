@@ -24,6 +24,9 @@
     <ClCompile Include="linklist.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="kuaisupaixu.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="linklist.h">

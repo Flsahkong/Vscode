@@ -63,7 +63,37 @@ void revshowall(node *phead)
 	}
 }
 
-node* findfirst(node*phead, int finddata,int newdata)
+node*insertfirst(node* phead, int finddata,int insertdata)						//找到某一个数，并在这个数字前面插入
+{
+	node *pnew = (node*)malloc(sizeof(node*));
+	pnew->data = insertdata;
+	pnew->pNext = NULL;
+
+	node *p1, *p2;
+	p1 = NULL;
+	p2 = phead;
+	while (p2 != NULL) {
+		if (p2->data != finddata) {
+			p1 = p2;
+			p2 = p2->pNext;
+		}
+		else {
+			break;
+		}
+	}
+	if (phead == p2) {
+		pnew->pNext = phead;
+		phead = pnew;
+	}
+	else {
+		pnew->pNext = p2;
+		p1->pNext = pnew;
+	}
+	return phead;
+
+}
+
+node*changefirst(node*phead, int finddata,int newdata)
 {
 	node*ptemp = (node*)malloc(sizeof(node));
 	ptemp = phead;
@@ -75,4 +105,73 @@ node* findfirst(node*phead, int finddata,int newdata)
 		ptemp = ptemp->pNext;
 	}
 	return NULL;
+}
+
+node* deletfirst(node*phead, int deletdata)
+{
+	node *p1, *p2;
+	p1 =NULL;
+	p2 = phead;
+	while (p2 != NULL) {
+		if (p2->data != deletdata) {
+			p1 = p2;
+			p2 = p2->pNext;
+		}
+		else {
+			break;
+		}
+	}
+	if (p2  != phead) {									//中间删除，但是中间删除的方法也包含了尾部删除。
+		p1->pNext = p2->pNext;
+		free(p2);
+	}
+	else {													//头部删除
+		phead = phead->pNext;
+		free(p2);
+	}
+	return phead;
+}
+
+
+//冒泡排序法
+void bubblesprt(node *phead)
+{
+	for (node *p1 = phead; p1 != NULL; p1 = p1->pNext) {
+		for (node *p2 = phead; p2 != NULL; p2 = p2->pNext) {
+			if (p1->data < p2->data) {
+				int temp;
+				temp = p1->data;
+				p1->data = p2->data;
+				p2->data = temp;
+			}
+		}
+	}
+}
+
+//链表的快速排序法
+ void myqsort(node *phead, node* pback)
+{
+	if (phead == pback) {
+		return;
+	}
+	else {
+		int key = phead->data;
+		node *p1 = phead;
+		for (node * p2 = phead->pNext; p2 != pback; p2 = p2->pNext) {
+			if (p2->data < key) {
+				p1 = p1->pNext;
+				int temp = p1->data;
+				p1->data = p2->data;
+				p2->data = temp;
+			}
+		}
+
+		int temp = p1->data;
+		p1->data = phead->data;
+		phead->data = temp;
+
+
+		myqsort(phead, p1);
+		myqsort(p1->pNext, pback);
+	}
 }
