@@ -1,0 +1,5 @@
+﻿  weiyu.c
+  main.c
+e:\hotwind\代码\vs\vscode\consoleapplication1\c language mass\main.c(8): warning C4013: “weiyu”未定义；假设外部返回 int
+  正在生成代码...
+  C language mass.vcxproj -> E:\Hotwind\代码\vs\Vscode\ConsoleApplication1\Debug\C language mass.exe

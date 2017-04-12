@@ -1,0 +1,6 @@
+﻿  源.c
+e:\hotwind\代码\vs\vscode\consoleapplication2\consoleapplication2\源.c(10): warning C4013: “meiju”未定义；假设外部返回 int
+  meiji.c
+e:\hotwind\代码\vs\vscode\consoleapplication2\consoleapplication2\meiji.c(7): warning C4101: “day”: 未引用的局部变量
+  正在生成代码...
+  ConsoleApplication2.vcxproj -> E:\Hotwind\代码\vs\Vscode\ConsoleApplication2\Debug\ConsoleApplication2.exe

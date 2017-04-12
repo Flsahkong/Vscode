@@ -1,0 +1,4 @@
+﻿  源.c
+e:\hotwind\代码\vs\vscode\20170326acm\project1\源.c(31): error C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\conio.h(458): note: 参见“kbhit”的声明
+e:\hotwind\代码\vs\vscode\20170326acm\project1\源.c(94): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
