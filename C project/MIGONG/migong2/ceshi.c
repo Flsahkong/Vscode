@@ -2,7 +2,7 @@
 # include<stdlib.h>
 
 int swap(int *a, int *b);
-int main()
+int main1()
 {
 	int a = 1, b = 10;
 	int num=swap(&a, &b);

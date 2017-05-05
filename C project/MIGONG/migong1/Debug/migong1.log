@@ -1,11 +1,11 @@
 ﻿  stdafx.c
   migong1.c
-e:\hotwind\代码\vs\vscode\migong\migong1\migong1.c(4): warning C4627: “#include <stdlib.h>”: 在查找预编译头使用时跳过
-  e:\hotwind\代码\vs\vscode\migong\migong1\migong1.c(4): note: 将指令添加到“stdafx.h”或重新生成预编译头
-e:\hotwind\代码\vs\vscode\migong\migong1\migong1.c(10): warning C4013: “foopen”未定义；假设外部返回 int
-e:\hotwind\代码\vs\vscode\migong\migong1\migong1.c(12): warning C4013: “system”未定义；假设外部返回 int
+e:\hotwind\代码\vs\vscode\c project\migong\migong1\migong1.c(4): warning C4627: “#include <stdlib.h>”: 在查找预编译头使用时跳过
+  e:\hotwind\代码\vs\vscode\c project\migong\migong1\migong1.c(4): note: 将指令添加到“stdafx.h”或重新生成预编译头
+e:\hotwind\代码\vs\vscode\c project\migong\migong1\migong1.c(10): warning C4013: “foopen”未定义；假设外部返回 int
+e:\hotwind\代码\vs\vscode\c project\migong\migong1\migong1.c(12): warning C4013: “system”未定义；假设外部返回 int
   foopen.c
-e:\hotwind\代码\vs\vscode\migong\migong1\foopen.c(2): warning C4627: “#include <stdlib.h>”: 在查找预编译头使用时跳过
-  e:\hotwind\代码\vs\vscode\migong\migong1\foopen.c(2): note: 将指令添加到“stdafx.h”或重新生成预编译头
+e:\hotwind\代码\vs\vscode\c project\migong\migong1\foopen.c(2): warning C4627: “#include <stdlib.h>”: 在查找预编译头使用时跳过
+  e:\hotwind\代码\vs\vscode\c project\migong\migong1\foopen.c(2): note: 将指令添加到“stdafx.h”或重新生成预编译头
   正在生成代码...
-  migong1.vcxproj -> E:\Hotwind\代码\vs\Vscode\MIGONG\Debug\migong1.exe
+  migong1.vcxproj -> E:\Hotwind\代码\vs\Vscode\C project\MIGONG\Debug\migong1.exe

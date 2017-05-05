@@ -1,0 +1,18 @@
+﻿  staticfunction.cpp
+  queueshixian.cpp
+  queue.cpp
+  main.cpp
+  hanshu.cpp
+  ObjectArry.cpp
+e:\hotwind\代码\vs\vscode\c++ project\ceshi 1\ceshi\objectarry.cpp(4): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  dongtaishuzu.cpp
+e:\hotwind\代码\vs\vscode\c++ project\ceshi 1\ceshi\dongtaishuzu.cpp(13): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+  copy gouzao function.cpp
+  CombinationObject.cpp
+  class_chuxue.cpp
+  cin cout.cpp
+e:\hotwind\代码\vs\vscode\c++ project\ceshi 1\ceshi\cin cout.cpp(31): warning C4305: “参数”: 从“int”到“char”截断
+e:\hotwind\代码\vs\vscode\c++ project\ceshi 1\ceshi\cin cout.cpp(31): warning C4309: “参数”: 截断常量值
+  正在生成代码...
+staticfunction.obj : error LNK2001: 无法解析的外部符号 "private: static int Student::countS" (?countS@Student@@0HA)
+E:\Hotwind\代码\vs\Vscode\C++ project\CESHI 1\Debug\CESHI.exe : fatal error LNK1120: 1 个无法解析的外部命令

@@ -1,6 +1,8 @@
-﻿  main.c
-e:\hotwind\代码\vs\vscode\migong\push box\main.c(89): warning C4033: “mod_map”必须返回值
-e:\hotwind\代码\vs\vscode\migong\push box\main.c(24): warning C4716: “init”: 必须返回一个值
-e:\hotwind\代码\vs\vscode\migong\push box\main.c(58): warning C4716: “show_map”: 必须返回一个值
-e:\hotwind\代码\vs\vscode\migong\push box\main.c(90): warning C4716: “mod_map”: 必须返回一个值
-  Push Box.vcxproj -> E:\Hotwind\代码\vs\Vscode\MIGONG\Debug\Push Box.exe
+﻿  源.c
+e:\hotwind\代码\vs\vscode\c project\migong\push box\源.c(9): warning C4473: “scanf_s”: 没有为格式字符串传递足够的参数
+  e:\hotwind\代码\vs\vscode\c project\migong\push box\源.c(9): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  e:\hotwind\代码\vs\vscode\c project\migong\push box\源.c(9): note: the missing variadic argument 2 is required by format string '%s'
+  e:\hotwind\代码\vs\vscode\c project\migong\push box\源.c(9): note: this argument is used as a buffer size
+e:\hotwind\代码\vs\vscode\c project\migong\push box\源.c(21): warning C4018: “<”: 有符号/无符号不匹配
+e:\hotwind\代码\vs\vscode\c project\migong\push box\源.c(27): warning C4018: “<”: 有符号/无符号不匹配
+  Push Box.vcxproj -> E:\Hotwind\代码\vs\Vscode\C project\MIGONG\Debug\Push Box.exe

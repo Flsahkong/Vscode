@@ -19,3 +19,5 @@ node* deletfirst(node*phead, int deletdata);
 node*insertfirst(node* phead, int finddata, int insertdata);
 void bubblesprt(node *phead);
 void myqsort(node *phead, node* pback);
+int getnum(node*phead);
+int getnumgui(node*phead);

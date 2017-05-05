@@ -37,8 +37,8 @@ node *addback(node *phead, int data)
 			ptem = ptem->pNext;
 		}
 		ptem->pNext = pnew;
-		return phead;
 	}
+	return phead;
 }
 
 void showall(node *phead)
@@ -132,6 +132,26 @@ node* deletfirst(node*phead, int deletdata)
 	return phead;
 }
 
+//链表的数据个数
+int getnum(node*phead)
+{
+	int i = 0;
+	for (; phead != NULL; phead = phead->pNext) {
+		i++;
+	}
+	return i;
+}
+
+//递归方法计算数据个数
+int getnumgui(node*phead)
+{
+	if (phead == NULL) {
+		return 0;
+	}
+	else {
+		return 1+getnumgui(phead->pNext);
+	}
+}
 
 //冒泡排序法
 void bubblesprt(node *phead)
@@ -145,6 +165,32 @@ void bubblesprt(node *phead)
 				p2->data = temp;
 			}
 		}
+	}
+}
+
+//链表的反转
+void revit(node*phead)
+{
+	if (phead == NULL || phead->pNext == NULL) {
+		return;
+	}
+	else {
+		node*pre = NULL;
+		node*pcur = NULL;
+		node*pnext = NULL;
+
+		pcur = phead;		//pur指向第1个节点
+		while (pcur)
+		{
+			pnext = pcur->pNext;		//备份下一个节点
+			pcur->pNext = pre;			//反转
+
+			//前进
+			pre = pcur;
+			pcur = pnext;
+			//pnext = pnext->pNext;			在前面已经提到
+		}
+		phead = pre;
 	}
 }
 
