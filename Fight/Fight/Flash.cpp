@@ -6,8 +6,8 @@
 Flash::Flash(Canvas*canvas):Plane(canvas)
 {
 	this->setSpeed(0.6f);
-	this->position.x = 400;
-	this->position.y = 400;
+	this->position.x = 343;
+	this->position.y = 890;
 
 	this->setTexture(Texture::FLASH);
 	this->setScale(0.8f, 0.8f);
@@ -51,5 +51,54 @@ void Flash::fire()
 	}
 	else {
 		i++;
+	}
+}
+
+void Flash::setshield(bool shield)
+{
+	this->shield = shield;
+}
+
+int Flash::getNowlife()
+{
+	return this->life;
+}
+
+void Flash::increaseLife()
+{
+	this->life++;
+}
+
+void Flash::dead()
+{
+	if (this->getNowlife()) {
+		//
+		//
+		//
+		//这里还有gameover的东西！！！！！！
+		//
+		//
+		//
+	}
+	else {
+		
+		this->life--;
+	}
+}
+
+void Flash::status()
+{
+	sf::Sprite *Explosion = new sf::Sprite;
+	switch (this->state) {
+	case 0:
+		break;
+	case 1:
+		BOOM.play();
+		Explosion->setPosition(this->getPosition().x, this->getPosition().y);
+		Explosion->setTexture(Texture::EXPLOSION1);
+		this->canvas->window->draw(*Explosion);
+		this->InitPsition();
+		state = 0;
+		break;
 	}
 }

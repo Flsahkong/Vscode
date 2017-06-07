@@ -46,5 +46,8 @@ public:
 	void setRate(int rate);
 	void enemyMove();
 	void enemyfire();
+
+	void checkEnemy();
+	bool checkFlash();
 };
 

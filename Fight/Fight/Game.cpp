@@ -3,7 +3,7 @@
 Game::Game(Canvas * canvas)
 {
 	this->canvas = canvas;
-
+	this->BMG.setVolume(20);
 }
 
 void Game::start()

@@ -10,7 +10,9 @@ public:
 	static sf::Texture BULLETM;
 	static sf::Texture BULLETL;
 	static sf::Texture BULLETR;
-	static sf::Texture EXPLOSION;
+	static sf::Texture EXPLOSION1;
+	static sf::Texture EXPLOSION2;
+	static sf::Texture EXPLOSION3;
 	static sf::Texture CANVAS;
 	
 	
