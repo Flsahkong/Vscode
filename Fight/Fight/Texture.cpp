@@ -8,15 +8,17 @@ sf::Texture Texture::ENEMY;
 sf::Texture Texture::FLASH;
 sf::Texture Texture::EXPLOSION;
 sf::Texture Texture::CANVAS;
+sf::Texture Texture::ENEMYBULLET;
 
 void Texture::load()
 {
-	FLASH.loadFromFile("image  (137).png");
-	ENEMY.loadFromFile("diji9.jfif");
-	BULLETM.loadFromFile("image  (127).png");
-	BULLETL.loadFromFile("image  (125).png");
-	BULLETL.loadFromFile("image  (125).png");
+	FLASH.loadFromFile("flash.png");
+	ENEMY.loadFromFile("image  (22).png");
+	BULLETM.loadFromFile("image  (129).png");
+	BULLETL.loadFromFile("bulletlr.png");
+	BULLETR.loadFromFile("bulletlr.png");
 	EXPLOSION.loadFromFile("baozha1.jfif");
 	CANVAS.loadFromFile("back.jpg");
+	ENEMYBULLET.loadFromFile("image  (5).png");
 }
 

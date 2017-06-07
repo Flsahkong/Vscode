@@ -8,9 +8,10 @@ class Game
 {
 private:
 	Canvas* canvas;
-	//ÎªÉ¶£¿
+
 	sf::Music  &BMG = Voice::BACKROUND;
 public:
+	
 	Game(Canvas* canvas);
 	void start();
 	~Game();

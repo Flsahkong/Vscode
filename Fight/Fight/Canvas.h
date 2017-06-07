@@ -14,7 +14,8 @@ class Canvas :
 	public sf::Sprite
 {
 private:
-	
+	int creatRate = 1000;
+	float enemySpeeed = 0.2f;
 	unordered_set<Enemy * > enemyPlanes;
 	unordered_set<Bullet * > flashBullets;
 	unordered_set<Bullet * > enemyBullets;
@@ -37,11 +38,13 @@ public:
 	void refresh();
 
 
-	void addBullet(Bullet*bullet14,int mark);
+	void addBullet(Bullet*bullet,int mark);
 	void moveBullet();
 
 
 	void addEnemy();
-
+	void setRate(int rate);
+	void enemyMove();
+	void enemyfire();
 };
 

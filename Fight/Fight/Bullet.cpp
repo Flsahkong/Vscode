@@ -1,7 +1,7 @@
 #include "Bullet.h"
 
 
-Bullet::Bullet(sf::Texture texture)
+Bullet::Bullet(sf::Texture texture, Canvas*canvas)
 {
 	this->setTexture(texture);
 	this->setScale(scale_x, scale_y);

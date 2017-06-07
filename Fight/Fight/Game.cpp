@@ -1,9 +1,5 @@
 #include "Game.h"
 
-
-
-
-
 Game::Game(Canvas * canvas)
 {
 	this->canvas = canvas;
@@ -40,10 +36,11 @@ void Game::start()
 			if (canvas->flash->getPosition().y <890) {
 				canvas->flash->Move('d');
 			}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Home)) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 			this->canvas->flash->fire();
 		}//¿ª»ð
-
+		canvas->addEnemy();
+		canvas->enemyfire();
 		canvas->moveBullet();
 		canvas->cleanBullet();
 		canvas->refresh();

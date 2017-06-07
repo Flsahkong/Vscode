@@ -24,6 +24,12 @@ void Movation::Move(char c)
 
 }
 
+void Movation::setSpeed(float speed)
+{
+	this->speed = speed;
+}
+
+
 Movation::Movation()
 {
 }

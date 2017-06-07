@@ -4,7 +4,7 @@ class Texture :
 	public sf::Texture
 {
 public:
-	
+	static sf::Texture ENEMYBULLET;
 	static sf::Texture FLASH;
 	static sf::Texture ENEMY;
 	static sf::Texture BULLETM;

@@ -2,12 +2,13 @@
 #include "Movation.h"
 #include"Texture.h"
 
+class Canvas;
 class Bullet :
 	public Movation
 {
 public:
 	
-	Bullet(sf::Texture texture);
+	Bullet(sf::Texture texture, Canvas* canvas);
 	void InitPosition(float x, float y);
 	~Bullet();
 private:

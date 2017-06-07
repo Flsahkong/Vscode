@@ -6,7 +6,7 @@ class Movation :
 public:
 
 	void Move(char c);
-
+	void setSpeed(float speed);
 	Movation();
 	~Movation();
 private:
