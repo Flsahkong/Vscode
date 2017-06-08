@@ -16,11 +16,20 @@ class Canvas :
 private:
 	int creatRate = 1000;
 	float enemySpeeed = 0.2f;
+	float bigbossSpeed = 0.0f;
+	int enemyScore = 3;
+	int smallbossScore = 7;
+	int bigbossScore = 100;
+
 	unordered_set<Enemy * > enemyPlanes;
+	unordered_set<Enemy*> bigBoss;
+	unordered_set<Enemy*> smallBoss;
+
 	unordered_set<Bullet * > flashBullets;
 	unordered_set<Bullet * > enemyBullets;
-	
-	
+	unordered_set<Bullet* >  smallbossBullets;
+	unordered_set<Bullet* >  bigbossBullets;
+
 	sf::Texture texture = Texture::CANVAS;
 	
 public:
@@ -47,7 +56,7 @@ public:
 	void enemyMove();
 	void enemyfire();
 
-	void checkEnemy();
+	void checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark);
 	bool checkFlash();
 };
 

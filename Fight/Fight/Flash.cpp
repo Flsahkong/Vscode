@@ -5,7 +5,7 @@
 
 Flash::Flash(Canvas*canvas):Plane(canvas)
 {
-	this->setSpeed(0.6f);
+	this->setSpeed(0.9f);
 	this->position.x = 343;
 	this->position.y = 890;
 
@@ -72,6 +72,9 @@ void Flash::increaseLife()
 void Flash::dead()
 {
 	if (this->getNowlife()) {
+		life--;
+	}
+	else {
 		//
 		//
 		//
@@ -79,10 +82,7 @@ void Flash::dead()
 		//
 		//
 		//
-	}
-	else {
 		
-		this->life--;
 	}
 }
 
@@ -102,3 +102,20 @@ void Flash::status()
 		break;
 	}
 }
+
+void Flash::increaseScore(int score)
+{
+	this->score += score;
+}
+
+void Flash::cleanScore()
+{
+	this->score = 0;
+}
+
+int Flash::getScore()
+{
+	return this->score;
+}
+
+

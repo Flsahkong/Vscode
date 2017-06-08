@@ -1,5 +1,25 @@
 #include "Game.h"
 
+void Game::showInformation()
+{
+	updateInformation();
+	this->nowlife = this->canvas->flash->getNowlife();
+	char s[20];
+	sprintf(s, "Life:%d\nScore:%d\n", this->nowlife, this->score);
+	Information.setFont(Texture::FRONT);
+	Information.setString(s);
+	Information.setCharacterSize(24);
+	Information.setFillColor(sf::Color::White);
+	Information.setPosition(0.0f, 0.0f);
+	this->canvas->window->draw(Information);
+}
+
+void Game::updateInformation()
+{
+	this->score = this->canvas->flash->getScore();
+	this->nowlife = this->canvas->flash->getNowlife();
+}
+
 Game::Game(Canvas * canvas)
 {
 	this->canvas = canvas;
@@ -38,13 +58,14 @@ void Game::start()
 			}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 			this->canvas->flash->fire();
-		}//¿ª»ð
+		}
 		canvas->addEnemy();
 		canvas->enemyfire();
 		canvas->moveBullet();
-		canvas->cleanBullet();
 		canvas->refresh();
-		canvas->window->display();
+		showInformation();
+ 		canvas->window->display();
+		canvas->cleanBullet();
 	}
 }
 

@@ -16,11 +16,11 @@ public:
 	Canvas* canvas;
 	 int statu=0;
 
-	Enemy(Canvas *canvas);
+	Enemy(Canvas *canvas,int a);
 	~Enemy();
 	
 	void getRandPosition();
-	void fire();
+	void fire(int mark);
 	void state();
 	
 private: 

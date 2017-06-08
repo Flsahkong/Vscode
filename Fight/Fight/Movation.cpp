@@ -14,6 +14,18 @@ void Movation::Move(char c)
 		direction.x = 0;	direction.y = -1;	break;
 	case 'd':
 		direction.x = 0;	direction.y = 1;	break;
+	case '4':
+		direction.x = -0.94f;    direction.y = 0.34f;   break;
+	case '1':
+		direction.x = -0.7f;    direction.y = 0.7f;   break;
+	case '2':
+		direction.x = -0.34f;    direction.y = 0.94f;   break;
+	case '6':
+		direction.x = 0.94f;    direction.y = 0.34f;   break;
+	case '3':
+		direction.x = 0.7f;    direction.y = 0.7f;   break;
+	case '5':
+		direction.x = 0.34f;    direction.y = 0.94f;   break;
 	}
 		
 

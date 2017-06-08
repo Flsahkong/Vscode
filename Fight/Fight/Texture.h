@@ -1,5 +1,6 @@
 #pragma once
 #include "E:\SFML-2.4.2\include\SFML\Graphics\Texture.hpp"
+#include<SFML\Graphics.hpp>
 class Texture :
 	public sf::Texture
 {
@@ -14,6 +15,9 @@ public:
 	static sf::Texture EXPLOSION2;
 	static sf::Texture EXPLOSION3;
 	static sf::Texture CANVAS;
+	static sf::Texture BOSS;
+	static sf::Texture SMALLBOSS;
+	static sf::Font FRONT;
 	
 	
 	static void load();

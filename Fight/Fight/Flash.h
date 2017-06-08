@@ -20,15 +20,20 @@ public:
 
 	void InitPsition();
 	void fire();
-	void setshield(bool shield);
-
-	int getNowlife();
+	
 	void increaseLife();
 	void dead();
 
+	void setshield(bool shield);
 	void status();
+
+	void increaseScore(int score);
+	void cleanScore();
+	int getScore();
+	int getNowlife();
 private:
 	int life = 3;
+	int score = 0;
 	sf::Music &BOOM = Voice::BOOM;
 	sf::Vector2f position;
 };
