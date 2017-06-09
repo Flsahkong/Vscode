@@ -17,6 +17,7 @@ int main()
 	Game game(&canvas);
 	game.start();
 
+
 	return 0;
 }
 

@@ -19,7 +19,12 @@ public:
 	static sf::Texture SMALLBOSS;
 	static sf::Font FRONT;
 	
-	
+	static sf::Texture ADDLIFE;
+	static sf::Texture SKILLONE;
+	static sf::Texture SKILLTWO;
+	static sf::Texture SKILLTHREE;
+
+	static sf::Texture TOUMING;
 	static void load();
 
 

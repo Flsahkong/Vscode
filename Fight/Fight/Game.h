@@ -3,21 +3,29 @@
 #include <SFML/Audio.hpp>
 #include"Voice.h"
 #include"Canvas.h"
+#include <stdlib.h> 
+#include<time.h>
 
 class Game
 {
 private:
 	Canvas* canvas;
 
-	//因为information和当前的生命都是属于游戏中的，所以在这里
-
+	sf::Music  &BMG = Voice::BACKROUND;
 	sf::Text Information;
+	
+	int packrand;
+	 
 	int nowlife;
 	int score=0;
+	int skillone = 0;
+	int skilltwo = 0;
+	int skillthree = 0;
+
 	void showInformation();
 	void updateInformation();
-
-	sf::Music  &BMG = Voice::BACKROUND;
+	void gengeraterand();
+	
 public:
 	
 	Game(Canvas* canvas);

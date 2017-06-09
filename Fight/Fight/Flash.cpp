@@ -64,6 +64,21 @@ int Flash::getNowlife()
 	return this->life;
 }
 
+int Flash::getSkillOne()
+{
+	return this->skillone;
+}
+
+int Flash::getSkillTwo()
+{
+	return this->skilltwo;
+}
+
+int Flash::getSkillThree()
+{
+	return this->skillthree;
+}
+
 void Flash::increaseLife()
 {
 	this->life++;
@@ -88,15 +103,16 @@ void Flash::dead()
 
 void Flash::status()
 {
-	sf::Sprite *Explosion = new sf::Sprite;
 	switch (this->state) {
 	case 0:
 		break;
 	case 1:
 		BOOM.play();
+		touming.setTexture(Texture::TOUMING);
 		Explosion->setPosition(this->getPosition().x, this->getPosition().y);
 		Explosion->setTexture(Texture::EXPLOSION1);
 		this->canvas->window->draw(*Explosion);
+		this->canvas->window->draw(touming);
 		this->InitPsition();
 		state = 0;
 		break;

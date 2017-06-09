@@ -3,9 +3,8 @@
 void Game::showInformation()
 {
 	updateInformation();
-	this->nowlife = this->canvas->flash->getNowlife();
-	char s[20];
-	sprintf(s, "Life:%d\nScore:%d\n", this->nowlife, this->score);
+	char s[100];
+	sprintf(s, "Life:%d\nScore:%d\nSkill One:%d\nSkill Two:%d\nSkill Three:%d", this->nowlife, this->score,this->skillone,this->skilltwo,this->skillthree);
 	Information.setFont(Texture::FRONT);
 	Information.setString(s);
 	Information.setCharacterSize(24);
@@ -18,6 +17,15 @@ void Game::updateInformation()
 {
 	this->score = this->canvas->flash->getScore();
 	this->nowlife = this->canvas->flash->getNowlife();
+	this->skillone = this->canvas->flash->getSkillOne();
+	this->skilltwo = this->canvas->flash->getSkillTwo();
+	this->skillthree = this->canvas->flash->getSkillThree();
+}
+
+void Game::gengeraterand()
+{
+	srand((unsigned)time(0));
+	this->packrand = rand() % 4;
 }
 
 Game::Game(Canvas * canvas)
@@ -31,7 +39,7 @@ void Game::start()
 	canvas->flash->InitPsition();
 	this->BMG.play();
 	while (canvas->window->isOpen()) {
-
+		gengeraterand();
 		sf::Event event;
 		while (canvas->window->pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
@@ -59,7 +67,10 @@ void Game::start()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 			this->canvas->flash->fire();
 		}
+
+		
 		canvas->addEnemy();
+		canvas->addPackage(this->packrand);
 		canvas->enemyfire();
 		canvas->moveBullet();
 		canvas->refresh();

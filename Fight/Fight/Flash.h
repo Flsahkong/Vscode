@@ -13,8 +13,16 @@ class Flash :
 public:
 
 	Canvas * canvas;
-	bool  shield = false;
+	sf::Sprite touming;
+	sf::Sprite *Explosion = new sf::Sprite;
+	bool shield = false;
 	int state = 0;
+	
+	int skillone = 0;
+	int skilltwo = 5;
+	int skillthree = 3;
+
+
 	Flash(Canvas*canvas);
 	~Flash();
 
@@ -31,6 +39,10 @@ public:
 	void cleanScore();
 	int getScore();
 	int getNowlife();
+	int getSkillOne();
+	int getSkillTwo();
+	int getSkillThree();
+
 private:
 	int life = 3;
 	int score = 0;

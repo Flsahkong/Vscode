@@ -8,6 +8,7 @@
 #include"Flash.h"
 #include"Bullet.h"
 #include"Texture.h"
+#include"Package.h"
 
 using namespace std;
 class Canvas :
@@ -30,6 +31,8 @@ private:
 	unordered_set<Bullet* >  smallbossBullets;
 	unordered_set<Bullet* >  bigbossBullets;
 
+	unordered_set<Package*> packAges;
+
 	sf::Texture texture = Texture::CANVAS;
 	
 public:
@@ -44,6 +47,7 @@ public:
 	void cleanBullet();
 
 	void addFlash(Flash* flash);
+	void protectItself();
 	void refresh();
 
 
@@ -58,5 +62,10 @@ public:
 
 	void checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark);
 	bool checkFlash();
+
+	void addPackage(int randpack);
+	void checkPackage();
+
+	void cleanBulletsandEnemys();
 };
 

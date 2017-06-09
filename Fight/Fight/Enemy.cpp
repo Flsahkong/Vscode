@@ -13,7 +13,7 @@ Enemy::Enemy(Canvas *canvas,int a):Plane(canvas)
 		break;
 	case 2:
 		this->setTexture(Texture::SMALLBOSS);
-		this->randPosition = (rand() % 860) + 1.0f;
+		this->randPosition = (rand() % 660) + 1.0f;
 		break;
 	case 3:
 		this->setTexture(Texture::BOSS);
@@ -31,8 +31,9 @@ Enemy::~Enemy()
 
 void Enemy::getRandPosition()
 {
-	
-	this->randPosition = (rand() % 713) + 1.0f;
+	float rand1 = (rand() % 400) + 1.0f;
+	float rand2 = (rand() % 313) + 1.0f;
+	this->randPosition = rand1 + rand2;
 }
 
 void Enemy::fire(int mark)
@@ -95,15 +96,12 @@ void Enemy::fire(int mark)
 			Bullet* bullet4 = new Bullet(Texture::ENEMYBULLET, canvas);
 			Bullet* bullet5 = new Bullet(Texture::ENEMYBULLET, canvas);
 
-			//这里的初始位置肯定要改
-			//
-			//
-			//
-			bullet1->setPosition(this->getPosition().x + 56, this->getPosition().y + 350);
-			bullet2->setPosition(this->getPosition().x + 90, this->getPosition().y + 350);
-			bullet3->setPosition(this->getPosition().x + 124, this->getPosition().y + 350);
-			bullet4->setPosition(this->getPosition().x + 158, this->getPosition().y + 350);
-			bullet5->setPosition(this->getPosition().x + 192, this->getPosition().y + 350);
+			
+			bullet1->setPosition(this->getPosition().x + 50, this->getPosition().y + 350);
+			bullet2->setPosition(this->getPosition().x + 110, this->getPosition().y + 350);
+			bullet3->setPosition(this->getPosition().x + 168, this->getPosition().y + 350);
+			bullet4->setPosition(this->getPosition().x + 226, this->getPosition().y + 350);
+			bullet5->setPosition(this->getPosition().x + 286, this->getPosition().y + 350);
 
 			bullet1->setTexture(Texture::ENEMYBULLET);
 			bullet2->setTexture(Texture::ENEMYBULLET);

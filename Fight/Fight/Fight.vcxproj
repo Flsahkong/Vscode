@@ -159,6 +159,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Movation.cpp" />
+    <ClCompile Include="Package.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Voice.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Flash.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Movation.h" />
+    <ClInclude Include="Package.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Voice.h" />

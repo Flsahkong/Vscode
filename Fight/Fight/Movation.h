@@ -10,6 +10,6 @@ public:
 	Movation();
 	~Movation();
 private:
-	float speed = 0.5;
+	float speed = 0.5f;
 };
 

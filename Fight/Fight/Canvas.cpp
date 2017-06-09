@@ -13,22 +13,35 @@ void Canvas::addFlash(Flash * flash)
 	this->flash = flash;
 }
 
+void Canvas::protectItself()
+{
+	if (this->flash->skilltwo > 0 && sf::Keyboard::isKeyPressed(sf::Keyboard::F2)) {
+		this->flash->setshield(true);
+		this->flash->skilltwo--;
+	}
+}
+
 void Canvas::refresh()
 {
 	this->window->clear();
 	this->window->draw(*this);
 	this->window->draw(*(this->flash));
 
+	this->checkPackage();
+	this->cleanBulletsandEnemys();
+
 	this->checkEnemy(enemyPlanes,1);
 	this->checkEnemy(smallBoss,2);
 	this->checkEnemy(bigBoss,3);
 
 	this->enemyMove();
-
+	
+	this->protectItself();
 	if (this->checkFlash()) {
 		this->flash->state = 1;
 		this->flash->dead();
 		this->flash->status();
+		
 		this->flash->setshield(true);
 	}
 
@@ -71,8 +84,21 @@ void Canvas::addBullet(Bullet * bullet, int mark)
 void Canvas::moveBullet()
 {
 	int i=1;
+	static int  j = 1;
+	bool ifplusplus = true;
 	for (auto &bullet : this->flashBullets) {
-		bullet->setSpeed(1.0f);
+		if (this->flash->skillone > 0&&j<10000&&j>0 ) {
+			bullet->setSpeed(1.5f);
+			if (ifplusplus) {
+				j++;
+			}
+			if (j == 10000)	this->flash->skillone--;
+		}
+		else {
+			bullet->setSpeed(1.0f);
+			j = 1;
+		}
+		ifplusplus = false;
 		bullet->Move('u');
 	}
 	for (auto &bullet : this->enemyBullets) {
@@ -226,7 +252,8 @@ void Canvas::checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark)
 			for (auto bullet = flashBullets.begin(); bullet != (flashBullets.end());) {
 				if ((*enemy)->getGlobalBounds().intersects((*bullet)->getGlobalBounds())) {
 					smallbosshitnum++;
-					bullet = this->flashBullets.erase(bullet);
+					
+					 bullet =this->flashBullets.erase(bullet);
 					if (smallbosshitnum == 9) {
 						smallbosshitnum = 0;
 						this->flash->increaseScore(this->smallbossScore);
@@ -234,8 +261,8 @@ void Canvas::checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark)
 						break;
 					}
 				}
-				if (flashBullets.size()) {
-					bullet++;
+				if (flashBullets.size()>1) {
+					bullet ++;
 				}
 				else {
 					break;
@@ -245,7 +272,7 @@ void Canvas::checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark)
 			break;
 		}
 
-		/*case 3:
+		case 3:
 		{
 			for (auto bullet = flashBullets.begin(); bullet != (flashBullets.end());) {
 				if ((*enemy)->getGlobalBounds().intersects((*bullet)->getGlobalBounds())) {
@@ -258,7 +285,7 @@ void Canvas::checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark)
 						break;
 					}
 				}
-				if (flashBullets.size()) {
+				if (flashBullets.size()>1) {
 					bullet++;
 				}
 				else {
@@ -267,8 +294,8 @@ void Canvas::checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark)
 
 			}
 			break;
-		}*/
-
+		}
+		}
 
 		if ((*enemy)->statu >= 1 && (*enemy)->statu <= 3) {
 			(*enemy)->state();
@@ -289,7 +316,6 @@ void Canvas::checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark)
 		if (temp == enemy) {
 			enemy++;
 		}
-		}
 	}
 	
 }
@@ -298,7 +324,7 @@ bool Canvas::checkFlash()
 {
 	if (this->flash->shield) {
 		static int a = 0;
-		if (a == 2000) {
+		if (a == 3000) {
 			a = 0;
 			this->flash->shield = false;
 			this->flash->setTexture(Texture::FLASH);
@@ -310,6 +336,7 @@ bool Canvas::checkFlash()
 	}
 	for (auto &bullet : this->enemyBullets) {
 		if ((bullet)->getGlobalBounds().intersects((this->flash)->getGlobalBounds())) {
+			this->enemyBullets.erase(bullet);
 			return true;
 		}
 	}
@@ -320,11 +347,13 @@ bool Canvas::checkFlash()
 	}
 	for (auto &bullet : this->smallbossBullets) {
 		if ((bullet)->getGlobalBounds().intersects((this->flash)->getGlobalBounds())) {
+			this->smallbossBullets.erase(bullet);
 			return true;
 		}
 	}
 	for (auto &bullet : this->bigbossBullets) {
 		if ((bullet)->getGlobalBounds().intersects((this->flash)->getGlobalBounds())) {
+			this->bigbossBullets.erase(bullet);
 			return true;
 		}
 	}
@@ -341,19 +370,99 @@ bool Canvas::checkFlash()
 	return false;
 }
 
+void Canvas::addPackage(int randpack)
+{
+	int static i = 0;
+	if (i == 6000) {
+		Package* package = new Package(this, randpack);
+		package->setSpeed(enemySpeeed);
+		this->packAges.insert(package);
+		i = 0;
+	}
+	else {
+		i++;
+	}
+}
+
+void Canvas::checkPackage()
+{
+	auto package = packAges.begin();
+	while (package != packAges.end()) {
+
+		if ((*package)->getPosition().y > 1000) {
+			delete *package;
+			package = (packAges).erase(package);
+			continue;
+		}
+		else {
+			(*package)->Move('d');
+		}
+
+		this->window->draw(**package);
+
+		if ((*package)->getGlobalBounds().intersects((this->flash)->getGlobalBounds())) {
+			switch ((*package)->mark) {
+			case 0:
+				this->flash->increaseLife();
+				break;
+			case 1:
+				this->flash->skillone++;
+				break;
+			case 2:
+				this->flash->skilltwo++;
+				break;
+			case 3:
+				this->flash->skillthree++;
+				break;
+			}
+			package = packAges.erase(package);
+		}
+
+		if (packAges.size()>1) {
+			package++;
+		}
+		else {
+			break;
+		}
+	}
+}
+
+void Canvas::cleanBulletsandEnemys()
+{
+	if (this->flash->skillthree > 0) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F3)) {
+			for (auto bullet = this->enemyBullets.begin(); bullet != this->enemyBullets.end();) {
+				delete * bullet;
+				enemyBullets.erase(*bullet);
+				bullet = enemyBullets.erase(bullet);
+			}
+			for (auto bullet = this->smallbossBullets.begin(); bullet != this->smallbossBullets.end();) {
+				delete * bullet;
+				smallbossBullets.erase(*bullet);
+				bullet = smallbossBullets.erase(bullet);
+			}
+			for (auto bullet = this->bigbossBullets.begin(); bullet != this->bigbossBullets.end();) {
+				delete * bullet;
+				bigbossBullets.erase(*bullet);
+				bullet = bigbossBullets.erase(bullet);
+			}
+			for (auto enemy = this->enemyPlanes.begin(); enemy != this->enemyPlanes.end();) {
+				delete * enemy;
+				enemyPlanes.erase(*enemy);
+				enemy = enemyPlanes.erase(enemy);
+			}
+			this->flash->skillthree--;
+		}
+	}
+}
+
+
 Canvas::~Canvas()
 {
 }
 
 void Canvas::cleanBullet() {
-		//
-		//
-		//
-			//这里是不是有一个bug？？
-		//
-		//
-		//
-		//
+		
 		for (auto flashBullet = this->flashBullets.begin(); flashBullet != (this->flashBullets.end());)
 		{
 
