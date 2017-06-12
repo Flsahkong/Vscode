@@ -15,8 +15,8 @@ class Enemy :
 public:
 	Canvas* canvas;
 	 int statu=0;
-
-	Enemy(Canvas *canvas,int a);
+	 static bool IfPressF11;
+	Enemy(Canvas *canvas,int a,bool IfPressF11);
 	~Enemy();
 	
 	void getRandPosition();
@@ -28,4 +28,5 @@ private:
 	float  randPosition;
 	sf::Vector2f position;
 	sf::Music	 &BOOM = Voice::BOOM;
+
 };

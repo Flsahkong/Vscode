@@ -172,9 +172,7 @@ mainloop:
 			this->canvas->flash->fire();
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F11)) {
-
 			this->BMG.setVolume(0);
-			
 		}
 		canvas->addEnemy();
 		canvas->addPackage(this->packrand);
@@ -220,7 +218,13 @@ mainloop:
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Home)) {
 
 			this->canvas->flash->reset();
-			this->canvas->cleanBulletsandEnemys();
+			this->canvas->cleanBigBoss();
+			this->canvas->cleanforreset();
+
+			this->canvas->IfBigbossDead = false;
+			this->canvas->ifcreatebigboss = true;
+			this->canvas->ifcreateenemy = true;
+			this->canvas->ifcreatesmallboss = true;
  			goto restart;
 		}
 	}

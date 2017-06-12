@@ -35,7 +35,7 @@ private:
 	void gengeraterand();
 	
 public:
-	
+
 	Game(Canvas* canvas);
 	void start();
 	void FlashMoveAutomatically();

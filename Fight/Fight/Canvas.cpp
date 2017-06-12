@@ -13,9 +13,19 @@ void Canvas::addFlash(Flash * flash)
 
 void Canvas::protectItself()
 {
-	if (this->flash->skilltwo > 0 && sf::Keyboard::isKeyPressed(sf::Keyboard::F2)) {
+	static int i = 2000;
+	static bool IfPressF2 = false;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F2)&&i==2000) {
+		IfPressF2 = true;
+		i = 0;
+	}
+	if (this->flash->skilltwo > 0 &&IfPressF2==true ) {
+		IfPressF2 = false;
 		this->flash->setshield(true);
 		this->flash->skilltwo--;
+	}
+	if (i < 2000) {
+		i++;
 	}
 }
 
@@ -35,12 +45,17 @@ void Canvas::refresh()
 	this->enemyMove();
 
 	this->protectItself();
+
 	if (this->checkFlash()) {
 		this->flash->state = 1;
 		this->flash->dead();
 		this->flash->status();
 		
 		this->flash->setshield(true);
+	}
+	else {
+		this->flash->state = 0;
+		this->flash->status();
 	}
 
 	for (auto &sprite : this->enemyBullets) {
@@ -57,7 +72,9 @@ void Canvas::refresh()
 		this->window->draw(*sprite);
 	}
 
-
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F11)) {
+		this->IfPressF11 = true;
+	}
 }
 
 void Canvas::addBullet(Bullet * bullet, int mark)
@@ -84,13 +101,20 @@ void Canvas::moveBullet()
 	int i=1;
 	static int  j = 1;
 	bool ifplusplus = true;
+	static bool IfpressF1 = false;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1)) {
+		IfpressF1 = true;
+	}
 	for (auto &bullet : this->flashBullets) {
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1)&&this->flash->skillone > 0&&j<10000&&j>0 ) {
+		if (IfpressF1==true&&this->flash->skillone > 0&&j<50000&&j>0 ) {
 			bullet->setSpeed(1.5f);
 			if (ifplusplus) {
 				j++;
 			}
-			if (j == 10000)	this->flash->skillone--;
+			if (j == 10000) {
+				this->flash->skillone--;
+				IfpressF1 = false;
+			}
 		}
 		else {
 			bullet->setSpeed(1.0f);
@@ -148,15 +172,14 @@ void Canvas::addEnemy()
 {
 	static int j = 1;
 	static int i = 0;
-	static bool ifcreatesmallboss = true;
-	static bool ifcreateenemy = true;
-	static bool ifcreatebigboss = true;
+	
 	if (this->flash->getScore() >= 100-6&&this->flash->getScore()<=100+6) {
-		if (ifcreatebigboss) {
-			ifcreateenemy = false;
-			ifcreateenemy = false;
-			ifcreatebigboss = false;
-			Enemy* boss = new Enemy(this, 3);
+		if (this->ifcreatebigboss) {
+			j = 1;
+			this->ifcreateenemy = false;
+			this->ifcreateenemy = false;
+			this->ifcreatebigboss = false;
+			Enemy* boss = new Enemy(this, 3,this->IfPressF11);
 			boss->setScale(1.0f,1.0f);
 			boss->setPosition(225.0f, 0.0f);
 			boss->setSpeed(bigbossSpeed);
@@ -167,7 +190,7 @@ void Canvas::addEnemy()
 		if (this->flash->getScore() != 0&&ifcreatesmallboss==true) {
 			j++;
 			ifcreatesmallboss = true;
-			Enemy* smallboss = new Enemy(this, 2);
+			Enemy* smallboss = new Enemy(this, 2,this->IfPressF11);
 			smallboss->setSpeed(enemySpeeed);
 			this->smallBoss.insert(smallboss);
 			if (i == creatRate) {
@@ -178,7 +201,7 @@ void Canvas::addEnemy()
 	}	
 	if (i == creatRate&&ifcreateenemy==true)
 	{
-		Enemy* enemy = new Enemy(this,1);
+		Enemy* enemy = new Enemy(this,1,this->IfPressF11);
 		enemy->setSpeed(enemySpeeed);
 		this->enemyPlanes.insert(enemy);
 		i = 0;
@@ -186,7 +209,9 @@ void Canvas::addEnemy()
 	else {
 		i++;
 	}
-	
+	if (i > 1000) {
+		i = 0;
+	}
 
 }
 
@@ -250,22 +275,18 @@ void Canvas::checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark)
 			for (auto bullet = flashBullets.begin(); bullet != (flashBullets.end());) {
 				if ((*enemy)->getGlobalBounds().intersects((*bullet)->getGlobalBounds())) {
 					smallbosshitnum++;
-					
-					 bullet =this->flashBullets.erase(bullet);
+
+					this->flashBullets.erase(bullet);
 					if (smallbosshitnum == 9) {
 						smallbosshitnum = 0;
 						this->flash->increaseScore(this->smallbossScore);
 						(*enemy)->statu = 2;
 						break;
 					}
-				}
-				if (flashBullets.size()>1) {
-					bullet ++;
-				}
-				else {
+					//由于只有一个smallBoss，所以直接跳出去，其实这是个bug...
 					break;
 				}
-
+				bullet++;
 			}
 			break;
 		}
@@ -275,21 +296,18 @@ void Canvas::checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark)
 			for (auto bullet = flashBullets.begin(); bullet != (flashBullets.end());) {
 				if ((*enemy)->getGlobalBounds().intersects((*bullet)->getGlobalBounds())) {
 					bigbosshitnum++;
-					bullet = this->flashBullets.erase(bullet);
+					this->flashBullets.erase(bullet);
 					if (bigbosshitnum == 120) {
 						bigbosshitnum = 0;
 						this->flash->increaseScore(this->bigbossScore);
 						(*enemy)->statu = 3;
 						break;
 					}
-				}
-				if (flashBullets.size()>1) {
-					bullet++;
-				}
-				else {
+					//由于只有一个bigBoss，所以直接跳出去，其实这是个bug...
 					break;
 				}
-
+				
+				bullet++;
 			}
 			break;
 		}
@@ -434,8 +452,15 @@ void Canvas::checkPackage()
 
 void Canvas::cleanBulletsandEnemys()
 {
+	static int i = 2000;
+	static bool IfPressF3 = false;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F3)&&i==2000) {
+		IfPressF3 = true;
+		i = 0;
+	}
 	if (this->flash->skillthree > 0) {
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F3)) {
+		if (IfPressF3==true) {
+	
 			for (auto &bullet :this->enemyBullets ) {
 				delete  bullet;
 			}
@@ -448,6 +473,8 @@ void Canvas::cleanBulletsandEnemys()
 			for (auto enemy  : this->enemyPlanes) {
 				delete  enemy;
 			}
+			
+			IfPressF3 = false;
 			this->flash->skillthree--;
 			enemyBullets.clear();
 			bigbossBullets.clear();
@@ -455,6 +482,38 @@ void Canvas::cleanBulletsandEnemys()
 			enemyPlanes.clear();
 		}
 	}
+	if (i < 2000) {
+		i++;
+	}
+}
+
+void Canvas::cleanBigBoss()
+{
+	for (auto &boss : this->bigBoss) {
+		delete boss;
+		bigBoss.clear();
+	}
+}
+
+void Canvas::cleanforreset()
+{
+	for (auto &bullet : this->enemyBullets) {
+		delete  bullet;
+	}
+	for (auto &bullet : this->smallbossBullets) {
+		delete bullet;
+	}
+	for (auto bullet : this->bigbossBullets) {
+		delete  bullet;
+	}
+	for (auto enemy : this->enemyPlanes) {
+		delete  enemy;
+	}
+
+	enemyBullets.clear();
+	bigbossBullets.clear();
+	smallbossBullets.clear();
+	enemyPlanes.clear();
 }
 
 

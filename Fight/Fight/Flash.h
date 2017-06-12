@@ -15,7 +15,9 @@ public:
 	Canvas * canvas;
 	sf::Sprite touming;
 	sf::Sprite *Explosion = new sf::Sprite;
+	sf::Music &BOOM = Voice::BOOM;
 	bool shield = false;
+	bool IsPressF11 = false;
 	int state = 0;
 	
 	int skillone = 3;
@@ -46,9 +48,9 @@ public:
 	void reset();
 
 private:
-	int life = 5;
+	int life = 8;
 	int score = 0;
-	sf::Music &BOOM = Voice::BOOM;
+	
 	sf::Vector2f position;
 };
 

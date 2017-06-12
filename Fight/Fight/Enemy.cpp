@@ -2,8 +2,9 @@
 #include"Game.h"
 #include"Texture.h"
 
+bool Enemy::IfPressF11;
 
-Enemy::Enemy(Canvas *canvas,int a):Plane(canvas)
+Enemy::Enemy(Canvas *canvas,int a,bool IfPressF11):Plane(canvas)
 {
 	this->statu = 0;
 	switch(a) {
@@ -23,7 +24,8 @@ Enemy::Enemy(Canvas *canvas,int a):Plane(canvas)
 	
 	this->setPosition(randPosition, 0);
 
-	this->BOOM.setVolume(50);
+	this->IfPressF11 = IfPressF11;
+	this->BOOM.setVolume(40);
 }
 
 Enemy::~Enemy()
@@ -131,15 +133,15 @@ void Enemy::fire(int mark)
 
 void Enemy::state()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F11)) {
-		this->BOOM.setVolume(0);
-	}
+
 	sf::Sprite *Explosion = new sf::Sprite;
 	switch (this->statu) {
 	case 0:
 		break;
 	case 1:
-		BOOM.play();
+		if (!IfPressF11) {
+			BOOM.play();
+		}
 		
 		Explosion->setPosition(this->getPosition().x, this->getPosition().y);
 		Explosion->setTexture(Texture::EXPLOSION1);
@@ -148,7 +150,9 @@ void Enemy::state()
 		statu = 0;
 		break;
 	case 2:
-		BOOM.play();
+		if (!IfPressF11) {
+			BOOM.play();
+		}
 		Explosion->setPosition(this->getPosition().x, this->getPosition().y);
 		Explosion->setTexture(Texture::EXPLOSION2);
 		this->canvas->window->draw(*Explosion);
@@ -156,7 +160,9 @@ void Enemy::state()
 		statu = 0;
 		break;
 	case 3:
-		BOOM.play();
+		if (!IfPressF11) {
+			BOOM.play();
+		}
 		Explosion->setPosition(this->getPosition().x, this->getPosition().y);
 		Explosion->setTexture(Texture::EXPLOSION3);
 		this->canvas->window->draw(*Explosion);

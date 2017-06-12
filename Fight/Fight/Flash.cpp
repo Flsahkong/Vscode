@@ -13,7 +13,7 @@ Flash::Flash(Canvas*canvas):Plane(canvas)
 	this->setScale(0.8f, 0.8f);
 	this->canvas = canvas;
 	
-	this->BOOM.setVolume(50);
+	this->BOOM.setVolume(40);
 }
 
 Flash::~Flash()
@@ -82,10 +82,11 @@ int Flash::getSkillThree()
 
 void Flash::reset()
 {
-	this->life = 5;
+	this->life = 8;
 	this->skillone = 3;
 	this->skilltwo = 3;
 	this->skillthree = 3;
+	this->score = 0;
 }
 
 void Flash::increaseLife()
@@ -101,13 +102,16 @@ void Flash::dead()
 void Flash::status()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F11)) {
-		this->BOOM.setVolume(0);
+		this->IsPressF11 = true;
 	}
 	switch (this->state) {
 	case 0:
 		break;
 	case 1:
-		BOOM.play();
+		if (!IsPressF11) {
+			BOOM.play();
+		}
+		
 		touming.setTexture(Texture::TOUMING);
 		Explosion->setPosition(this->getPosition().x, this->getPosition().y);
 		Explosion->setTexture(Texture::EXPLOSION1);

@@ -22,6 +22,8 @@ private:
 	int smallbossScore = 7;
 	int bigbossScore = 100;
 
+	bool IfPressF11 = false;
+
 	unordered_set<Enemy * > enemyPlanes;
 	unordered_set<Enemy*> bigBoss;
 	unordered_set<Enemy*> smallBoss;
@@ -40,6 +42,9 @@ public:
 	sf::RenderWindow *window;
 	Flash* flash;
 	bool IfBigbossDead = false;
+	bool ifcreatesmallboss = true;
+	bool ifcreateenemy = true;
+	bool ifcreatebigboss = true;
 
 	Canvas(sf::RenderWindow *window);
 	~Canvas();
@@ -67,5 +72,7 @@ public:
 	void checkPackage();
 
 	void cleanBulletsandEnemys();
+	void cleanBigBoss();
+	void cleanforreset();
 };
 
