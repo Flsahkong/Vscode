@@ -14,6 +14,7 @@ sf::Texture Texture::ENEMYBULLET;
 sf::Texture Texture::BOSS;
 sf::Texture Texture::SMALLBOSS;
 sf::Font Texture::FRONT;
+sf::Font Texture::FRONTMESS;
 
 sf::Texture Texture::ADDLIFE;
 sf::Texture Texture::SKILLONE;
@@ -21,6 +22,8 @@ sf::Texture Texture::SKILLTWO;
 sf::Texture Texture::SKILLTHREE;
 
 sf::Texture Texture::TOUMING;
+
+sf::Texture Texture::STARTSCTION;
 void Texture::load()
 {
 	FLASH.loadFromFile("flash.png");
@@ -34,12 +37,13 @@ void Texture::load()
 	ENEMYBULLET.loadFromFile("image  (5).png");
 
 	EXPLOSION1.loadFromFile("image  (82).png");
-	EXPLOSION2.loadFromFile("baozha1.jfif");
+	EXPLOSION2.loadFromFile("baozha1.png");
 	EXPLOSION3.loadFromFile("image  (161).png");
 
-	CANVAS.loadFromFile("back.jpg");
+	CANVAS.loadFromFile("timgnew.jpg");
 	
 	FRONT.loadFromFile("BertramLP.TTF");
+	FRONTMESS.loadFromFile("CaflischScriptPro-Regular.otf");
 
 	ADDLIFE.loadFromFile("image  (111).png");
 	SKILLONE.loadFromFile("image  (113).png");
@@ -47,5 +51,7 @@ void Texture::load()
 	SKILLTHREE.loadFromFile("image  (114).png");
 
 	TOUMING.loadFromFile("touming.png");
+
+	STARTSCTION.loadFromFile("startpic.jpg");
 }
 

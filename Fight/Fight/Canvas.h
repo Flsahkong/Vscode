@@ -39,7 +39,7 @@ public:
 
 	sf::RenderWindow *window;
 	Flash* flash;
-
+	bool IfBigbossDead = false;
 
 	Canvas(sf::RenderWindow *window);
 	~Canvas();

@@ -18,6 +18,7 @@ public:
 	static sf::Texture BOSS;
 	static sf::Texture SMALLBOSS;
 	static sf::Font FRONT;
+	static sf::Font FRONTMESS;
 	
 	static sf::Texture ADDLIFE;
 	static sf::Texture SKILLONE;
@@ -25,8 +26,10 @@ public:
 	static sf::Texture SKILLTHREE;
 
 	static sf::Texture TOUMING;
+	
+
+	static sf::Texture STARTSCTION;
+
 	static void load();
-
-
 };
 

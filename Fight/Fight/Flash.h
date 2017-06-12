@@ -18,8 +18,8 @@ public:
 	bool shield = false;
 	int state = 0;
 	
-	int skillone = 0;
-	int skilltwo = 5;
+	int skillone = 3;
+	int skilltwo = 3;
 	int skillthree = 3;
 
 
@@ -43,8 +43,10 @@ public:
 	int getSkillTwo();
 	int getSkillThree();
 
+	void reset();
+
 private:
-	int life = 3;
+	int life = 5;
 	int score = 0;
 	sf::Music &BOOM = Voice::BOOM;
 	sf::Vector2f position;

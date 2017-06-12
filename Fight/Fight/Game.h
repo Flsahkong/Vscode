@@ -13,8 +13,13 @@ private:
 
 	sf::Music  &BMG = Voice::BACKROUND;
 	sf::Text Information;
-	
+	sf::Text StartInfoOne;
+	sf::Text StartInfoTwo;
+	sf::Text StartInfoThree;
+	sf::Text WinInfo;
+	sf::Text WinInfoTwo;
 	int packrand;
+	bool IsWin = false;
 	 
 	int nowlife;
 	int score=0;
@@ -23,6 +28,9 @@ private:
 	int skillthree = 0;
 
 	void showInformation();
+	void showStartInfo();
+	void showStartNextInfo();
+	void showFinalInfo();
 	void updateInformation();
 	void gengeraterand();
 	
@@ -30,6 +38,7 @@ public:
 	
 	Game(Canvas* canvas);
 	void start();
+	void FlashMoveAutomatically();
 	~Game();
 };
 

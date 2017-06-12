@@ -4,8 +4,6 @@ Canvas::Canvas(sf::RenderWindow * window)
 {
 	this->window = window;
 	this->setTexture(this->texture);
-	this->setScale(1.0f*window->getSize().x / this->texture.getSize().x,
-		1.0f*window->getSize().y / this->texture.getSize().y);
 }
 
 void Canvas::addFlash(Flash * flash)
@@ -35,7 +33,7 @@ void Canvas::refresh()
 	this->checkEnemy(bigBoss,3);
 
 	this->enemyMove();
-	
+
 	this->protectItself();
 	if (this->checkFlash()) {
 		this->flash->state = 1;
@@ -87,7 +85,7 @@ void Canvas::moveBullet()
 	static int  j = 1;
 	bool ifplusplus = true;
 	for (auto &bullet : this->flashBullets) {
-		if (this->flash->skillone > 0&&j<10000&&j>0 ) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1)&&this->flash->skillone > 0&&j<10000&&j>0 ) {
 			bullet->setSpeed(1.5f);
 			if (ifplusplus) {
 				j++;
@@ -301,9 +299,16 @@ void Canvas::checkEnemy(unordered_set<Enemy*> &enemyPlanes,int mark)
 			(*enemy)->state();
 
 			enemy = (enemyPlanes).erase(enemy);
+			
 			smallbosshitnum = 0;
 			bigbosshitnum = 0;
+			if (mark == 3) {
+				this->IfBigbossDead = true;
+			}
 			continue;
+		}
+		if ((*enemy)->statu ==0) {
+			(*enemy)->state();
 		}
 
 		if ((*enemy)->getPosition().y > 1000) {
@@ -373,7 +378,7 @@ bool Canvas::checkFlash()
 void Canvas::addPackage(int randpack)
 {
 	int static i = 0;
-	if (i == 6000) {
+	if (i == 6000&&this->IfBigbossDead == false) {
 		Package* package = new Package(this, randpack);
 		package->setSpeed(enemySpeeed);
 		this->packAges.insert(package);
@@ -431,27 +436,23 @@ void Canvas::cleanBulletsandEnemys()
 {
 	if (this->flash->skillthree > 0) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F3)) {
-			for (auto bullet = this->enemyBullets.begin(); bullet != this->enemyBullets.end();) {
-				delete * bullet;
-				enemyBullets.erase(*bullet);
-				bullet = enemyBullets.erase(bullet);
+			for (auto &bullet :this->enemyBullets ) {
+				delete  bullet;
 			}
-			for (auto bullet = this->smallbossBullets.begin(); bullet != this->smallbossBullets.end();) {
-				delete * bullet;
-				smallbossBullets.erase(*bullet);
-				bullet = smallbossBullets.erase(bullet);
+			for (auto &bullet : this->smallbossBullets) {
+				delete bullet;
 			}
-			for (auto bullet = this->bigbossBullets.begin(); bullet != this->bigbossBullets.end();) {
-				delete * bullet;
-				bigbossBullets.erase(*bullet);
-				bullet = bigbossBullets.erase(bullet);
+			for (auto bullet : this->bigbossBullets) {
+				delete  bullet;
 			}
-			for (auto enemy = this->enemyPlanes.begin(); enemy != this->enemyPlanes.end();) {
-				delete * enemy;
-				enemyPlanes.erase(*enemy);
-				enemy = enemyPlanes.erase(enemy);
+			for (auto enemy  : this->enemyPlanes) {
+				delete  enemy;
 			}
 			this->flash->skillthree--;
+			enemyBullets.clear();
+			bigbossBullets.clear();
+			smallbossBullets.clear();
+			enemyPlanes.clear();
 		}
 	}
 }

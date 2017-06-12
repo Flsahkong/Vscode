@@ -23,6 +23,7 @@ Enemy::Enemy(Canvas *canvas,int a):Plane(canvas)
 	
 	this->setPosition(randPosition, 0);
 
+	this->BOOM.setVolume(50);
 }
 
 Enemy::~Enemy()
@@ -130,12 +131,16 @@ void Enemy::fire(int mark)
 
 void Enemy::state()
 {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F11)) {
+		this->BOOM.setVolume(0);
+	}
 	sf::Sprite *Explosion = new sf::Sprite;
 	switch (this->statu) {
 	case 0:
 		break;
 	case 1:
 		BOOM.play();
+		
 		Explosion->setPosition(this->getPosition().x, this->getPosition().y);
 		Explosion->setTexture(Texture::EXPLOSION1);
 		this->canvas->window->draw(*Explosion);

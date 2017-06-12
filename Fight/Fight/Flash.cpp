@@ -13,6 +13,7 @@ Flash::Flash(Canvas*canvas):Plane(canvas)
 	this->setScale(0.8f, 0.8f);
 	this->canvas = canvas;
 	
+	this->BOOM.setVolume(50);
 }
 
 Flash::~Flash()
@@ -79,6 +80,14 @@ int Flash::getSkillThree()
 	return this->skillthree;
 }
 
+void Flash::reset()
+{
+	this->life = 5;
+	this->skillone = 3;
+	this->skilltwo = 3;
+	this->skillthree = 3;
+}
+
 void Flash::increaseLife()
 {
 	this->life++;
@@ -86,23 +95,14 @@ void Flash::increaseLife()
 
 void Flash::dead()
 {
-	if (this->getNowlife()) {
-		life--;
-	}
-	else {
-		//
-		//
-		//
-		//这里还有gameover的东西！！！！！！
-		//
-		//
-		//
-		
-	}
+	this->life--;
 }
 
 void Flash::status()
 {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F11)) {
+		this->BOOM.setVolume(0);
+	}
 	switch (this->state) {
 	case 0:
 		break;
